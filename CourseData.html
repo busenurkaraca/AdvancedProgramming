@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Add Course </title>
+</head>
+
+<script>
+"use strict";
+	var avgArray = [];
+function push() {
+	a.push(nme.value);
+	a.push(midterm.value);
+	a.push(fnl.value);
+	nme.value = null;
+	midterm.value = null;
+	fnl.value = null;
+ 
+	reportA("push "+name);
+}
+
+function reportA(str) {
+    outA.innerText = "a = [ "+ a.join(", ")+" ] "+a.length;
+    console.log(str);
+}
+function printB() {
+	outB.innerText = null ;
+	var i;
+	for(i=0; i< a.length; i+=3 ){
+		if(typeof a[i] === 'string'){
+			 outB.innerText += a[i]+" "+a[i+1]+" "+a[i+2] ;
+			 outB.innerText += "\n";
+		}
+		else{}
+	}
+}
+
+function findMax() {
+	var str = "";
+	var maxIndex;
+	var maxNum = 0;
+	var avg;
+	var i=0 ;
+	outF.innerText = null ;
+	var maxValue = 0 ;
+	for(i=0; i< a.length; i+=3 ){
+		if(typeof a[i] === 'string'){
+			avg = ((Number(a[i+1]) / 2) + (Number(a[i+2]) / 2)) ;
+			avgArray.push(a[i]);
+			avgArray.push(avg);
+		}
+		else{}
+	}
+	for(i=1; i< avgArray.length; i+=2 ){
+		if(avgArray[i] > maxNum){
+			maxNum = avgArray[i];
+		}
+	}
+	maxIndex = avgArray.indexOf(maxNum);
+	str = avgArray[maxIndex-1];
+	outF.innerText +=  str+" "+ maxNum ;
+	outF.innerText += "\n";
+		
+	reportA("findMax ");	
+}
+
+function average() {
+	outD.innerText = null ;
+	var i;
+	var avg;
+	for(i=0; i< a.length; i+=3 ){
+		if(typeof a[i] === 'string'){
+			avg = ((Number(a[i+1]) / 2) + (Number(a[i+2]) / 2)) ;
+			outD.innerText += a[i]+" "+ avg ;
+			outD.innerText += "\n";
+		}
+		else{}
+	}
+    reportA("avg ");
+}
+
+</script>
+
+<body>
+<h2 id=title></h2>
+
+<p id=outA></p> 
+
+<p>
+Name = <input type=text id=nme style="width:150px"> 
+</p>
+<p> 
+Midterm = <input type=number id=midterm style="width:150px"> 
+</p>
+<p> 
+Final = <input type=number id=fnl style="width:150px"> 
+</p>
+<p>
+<input type=button value="add"  onClick="push()">
+</p>
+<p>
+<input type=button value="print"  onClick="printB()">
+<input type=button value="avg"  onClick="average()">
+<input type=button value="max"   onClick="findMax()">
+</p>
+
+<hr>
+<h4> Name  Midterm  Final</h4>
+<p id=outB></p>
+<p id=outC></p>
+<hr />
+
+<hr>
+<h4> Name  Average</h4>
+<p id=outD></p>
+<p id=outE></p>
+<hr />
+
+<hr>
+<h4> Name  Max</h4>
+<p id=outF></p>
+<hr />
+
+<!-- <p>Ref: 
+<a href="https://www.w3schools.com/js/js_arrays.asp" target="ExternalDocument">Array Examples</a></p>
+<p>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections" target="ExternalDocument">Set Examples</a>
+</p> -->
+
+<script>
+    title.innerText = document.title;
+    const a = [];  //initially
+    reportA("start");
+</script>
+
+</body>
+</html>
