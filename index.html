@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://maeyler.github.io/JS/sss/inspector.css" 
+          rel="stylesheet" media="all">
+    <script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
+    <script src="Database.js"></script>
+    <title>Eloquent JavaScript </title>
+</head>
+
+<body>
+
+<p><b id=docName></b> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/">Read me</a> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/Turkish">Turkish</a>
+</p>
+
+<script> 
+class CW4 extends Menu{
+   constructor(){ 
+   super();
+   this.Course = new Course("BLM305","13:00","12.02.2018","201");
+   this.Student = new Student("111","ayşe",2.58,"BLM305,BLM306");
+   this.Point = new Point(3,5);
+   this.Points3D = new Points3D(5,4,7);
+    this.Distance = new Distance(50);
+    }
+}
+</script>
+
+<script>
+function init() {
+    display(MENU);
+    display(new CW4());
+    display(MENU);
+}
+    docName.innerText = "Inspector "+VERSION;
+    try {
+        inspect(document.body, init); //makes the table
+        //inp.value = "new Number(c.pi)";
+    } catch(e) {
+        reportError(e);
+    }
+
+</script>
+
+</p><p>
+<a href="https://busenurkaraca.github.io/AdvancedProgramming/ArrayDemoNewFile.html">Array Demo New File</a> &emsp;
+<a href="https://busenurkaraca.github.io/AdvancedProgramming/CourseData.html">Course Data</a>
+<a href="https://busenurkaraca.github.io/AdvancedProgramming/inspector.html">Inspector</a>
+</p>
+<pre id=disp1></pre>
+<img id=disp2 />
+
+</body>
+</html>
