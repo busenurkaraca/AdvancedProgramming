@@ -1,59 +1,110 @@
 <!DOCTYPE html>
-<html lang="en-US">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link href="https://maeyler.github.io/JS/sss/inspector.css" 
-          rel="stylesheet" media="all">
-    <script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
-    <script src="Database.js"></script>
-    <title>Eloquent JavaScript </title>
+    <script src="database.js"></script>
+    <title>Set Intersection </title>
+
+<script>
+"use strict";
+const url = "https://maeyler.github.io/JS/data/";
+const array = [], set = new Set();
+let map = new Map();
+let randoms = [];
+let countMap = 0;
+let countArray = 0;
+randoms.push("116711650");
+randoms.push("116712215");
+randoms.push("116712448");
+
+for(let i = 0; i<10000; i++){
+    let id = Math.floor(Math.random()*10000+116170000);
+    randoms.push(id);
+}
+
+    console.log(randoms[0],randoms[1]);
+
+function readData(file) {
+    console.log("readData "+file);
+    fetch(url+file)
+        .then(r => r.text(), console.log)
+        .then(addStudents, console.log);
+}
+function parseStudent(line) {
+    let b = line.split("\t");
+    let id = b[0], name = b[1], gpa = b[2];
+    let std = new Student(id, name, gpa);
+    let list = [];
+    for (let i=3; i<b.length; i++) 
+        list.push(b[i]);
+    std.courses = list
+    return std
+}
+function addStudents(txt) {
+    let msg = "\nData contains ";
+    msg += txt.length+" chars, ";
+    let a = txt.split("\n");
+    msg += a.length+" lines \n";
+    for (let s of a) {
+      let std = parseStudent(s);
+      array.push(std.id);
+      map.set(std.id,std.name);
+      //console.log(map.get(std.id)); 
+    }
+    msg += array.length+" students, "
+    msg += set.size+" distinct names"
+    out.innerText += msg
+ 
+}
+function intersectMap(a, b) { //fast
+    //console.log(array);
+    for(let x of a){
+        if(b.has(x))
+            countMap++;    
+    }
+    console.log(countMap);
+}
+function intersectArray(a, b) { //slow
+    
+    for(let x of b){
+       if(a.includes(x))
+            countArray++;    
+    }
+    console.log(countArray);
+}
+function timingArray(f) {
+    let t = performance.now()
+    let x = f(randoms, array)  //calculate intersection by itself
+    t = performance.now() - t
+    let s = f.name+": "+t.toPrecision(3)+" bulunanlar "+countArray
+    out.innerText += "\n"+s; console.log(s)
+}
+function timingMap(f) {
+    let t = performance.now()
+    let x = f(randoms, map)  //calculate intersection by itself
+    t = performance.now() - t
+    let s = f.name+": "+t.toPrecision(3)+" bulunanlar "+countMap
+    out.innerText += "\n"+s; console.log(s)
+}
+</script>
 </head>
 
 <body>
-
-<p><b id=docName></b> &nbsp;
-<a href="https://maeyler.github.io/JS/sss/">Read me</a> &nbsp;
-<a href="https://maeyler.github.io/JS/sss/Turkish">Turkish</a>
-</p>
-
-<script> 
-class CW4 extends Menu{
-   constructor(){ 
-   super();
-   this.Course = new Course("BLM305","13:00","12.02.2018","201");
-   this.Student = new Student("111","ayşe",2.58,"BLM305,BLM306");
-   this.Point = new Point(3,5);
-   this.Points3D = new Points3D(5,4,7);
-    this.Distance = new Distance(50);
-    }
-}
-</script>
+<h2 id=title></h2>
+<button onClick='timingArray(intersectArray)'>Method 1</button>
+<button onClick='timingMap(intersectMap)'>Method 2</button>
+<p id=out>Question 3 in the exam</p>
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
 
 <script>
-function init() {
-    display(MENU);
-    display(new CW4());
-    display(MENU);
-}
-    docName.innerText = "Inspector "+VERSION;
-    try {
-        inspect(document.body, init); //makes the table
-        //inp.value = "new Number(c.pi)";
-    } catch(e) {
-        reportError(e);
-    }
-
+    title.innerText = document.title;
+    sample.innerText = intersectMap+"\n"+intersectArray;
+    readData("Students.txt")
 </script>
-
-</p><p>
-<a href="https://busenurkaraca.github.io/AdvancedProgramming/ArrayDemoNewFile.html">Array Demo New File</a> &emsp;
-<a href="https://busenurkaraca.github.io/AdvancedProgramming/CourseData.html">Course Data</a>
-<a href="https://busenurkaraca.github.io/AdvancedProgramming/inspector.html">Inspector</a>
-</p>
-<pre id=disp1></pre>
-<img id=disp2 />
 
 </body>
 </html>
