@@ -1,0 +1,114 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Make a Table </title>
+<script>
+
+
+function makeRows(m, n) {
+    let row = "<th></th>";
+    for (let j = 1; j <= n; j++) 
+        row += "<th>"+j+"</th>";
+    let text = "<tr>"+row+"</tr>";
+    for (let i = 1; i <= m; i++) {
+       row = "<th>"+i+"</th>";
+       for (let j = 1; j <= n; j++) {
+          const p = n*(i-1)+j;
+          const s = "<span class=tip>C"+p+"</span>"
+          row += "<td>"+i+","+j+s+"</td>";
+       }
+       text += "<tr>"+row+"</tr>";
+    }
+    const t = text.length+" chars";
+    console.log("makeRows: "+m+"x"+n+" "+t);
+    //tablo.innerHTML = text; out.innerText = t; 
+}
+
+
+</script>
+
+<style>
+    table { border-collapse: collapse; }
+    th { color: blue; padding: 5px 5px; }
+    td { 
+        border: 1px solid blue; 
+        padding: 5px 5px; 
+        text-align: center; 
+    }
+    td:hover .tip { visibility: visible; }
+    .tip {
+        visibility: hidden;
+        font-size: small;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        padding: 5px 5px;
+        position: absolute;
+    }
+</style>
+
+<h1>Datalar</h1>
+
+
+<table border="1">
+
+<script language="javascript" type="text/javascript">
+<!--
+"use strict";
+for(let a = 0; a<5; a++){
+    let array = new Array();
+    array.name = "array"+a;
+    console.log(array.name);
+}
+      const COURSES = [
+    {name: "BLM101", akts: 7, place: "LAB1"},
+    {name: "MAT", akts: 5, place: "LAB2"},
+    {name: "FIZ", akts: 5, place: "LAB3"},
+    {name: "KIM", akts: 3, place: "LAB4"},
+    {name: "GEO", akts: 4, place: "LAB5"},
+    {name: "BLM202", akts: 6, place: "LAB1"},
+    {name: "TARIH", akts: 2, place: "LAB3"},
+    {name: "SOS", akts: 5, place: "LAB4"}
+  ];
+
+let names = [];
+let akts = [];
+let places = [];
+function readArray(a){
+    for(let entry of a){
+        names.push(entry.name);
+        akts.push(entry.akts);
+        places.push(entry.place);
+        //console.log(entry.name);
+        //console.log(entry.height);
+        //console.log(entry.place);
+    }
+}
+readArray(COURSES);
+for (let i=0; i<COURSES.length; i++) {
+  document.write("<tr><td>" + names[i] + "</td>");
+  document.write("<td>" + akts[i] + "</td>");
+  document.write("<td>" + places[i] + "</td></tr>");
+}
+
+//-->
+</script>
+
+
+</head>
+
+<body>
+<p>
+<a href="https://github.com/busenurkaraca/AdvancedProgramming">MY GITHUB REPO</a>
+</p>
+</body>
+
+</html>
+
+<script> 
+
+readArray(COURSES); 
+makeRows(names, akts);
+
+</script>
