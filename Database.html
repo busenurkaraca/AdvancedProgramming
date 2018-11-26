@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Student Database </title>
+	<script src="Database.js"></script>
+  <style>
+    .link {
+        color: blue;
+        cursor: pointer;
+        font-style: italic;
+    }
+    .course {
+        visibility: hidden;
+        font: 10px arial, sans-serif;
+        color: white;
+        background: blue;
+        cursor: text;
+        padding: 6px;
+        position: absolute;
+        height: 90px;
+        overflow-y: auto;
+    }
+    .link:hover .course { 
+        visibility: visible; 
+    }
+  </style>
+
+</head>
+
+<body>
+
+<h2 id=title></h2>
+
+<button onClick='randomStd()'>Random</button>
+<button onClick='higherGivenGPA()'>Belirli Ort.</button>
+<button onClick='courseTime()'>Ders Saati </button>
+<p> </p>
+<button onClick='givenStudentCourses()'>Öğr. Dersleri</button>
+<button onClick='givenCourseStudents()'>Dersin Öğrencileri</button>
+<button onClick='givenExamRoomCourses()'>Sınav Sınıf</button>
+<p> </p>
+<button onClick='sınavTakvimi()'>Öğr. Sınav Takvimi</button>
+<button onClick='totalNumberOfCourses()'>Sınıftaki Dersler</button>
+
+<p>Student id: 
+<input type=number id="studentId" value="">
+</p>
+<p>Course code: 
+<input type=text id="courseCode" value="">
+</p>
+<p>GPA: 
+<input type=number id="gpa" value="0">
+</p>
+<p>Student name: 
+<input type=text id="SName" value="">
+</p>
+<p>Exam class: 
+<input type=text id="eClass" value="">
+</p>
+
+<p id=out> </p> 
+
+<!-- <hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr /> -->
+
+<script>
+    title.innerText = document.title;
+    //sample.innerText = readStudents+"\n"+addStudents;
+    readStudents();
+	readCourses();
+</script>
+
+</body>
+</html>
