@@ -1,5 +1,5 @@
 const CACHE ='JS'
-const FILES = ['/https://busenurkaraca.github.io/AdvancedProgramming/', '/https://celilreha.github.io/AdvancedProg/inspector.html','https://celilreha.github.io/AdvancedProg/myhtml.html','https://celilreha.github.io/AdvancedProg/Timing.html','https://celilreha.github.io/AdvancedProg/CW7.html','https://celilreha.github.io/AdvancedProg/CourseData.html','https://celilreha.github.io/AdvancedProg/CW7','https://celilreha.github.io/AdvancedProg/Database.html','https://celilreha.github.io/AdvancedProg/HW3.html']
+const FILES = ['/https://busenurkaraca.github.io/AdvancedProgramming/', '/https://busenurkaraca.github.io/AdvancedProgramming/inspector.html','https://busenurkaraca.github.io/AdvancedProgramming/myhtml.html','https://busenurkaraca.github.io/AdvancedProgramming/Timing.html','https://busenurkaraca.github.io/AdvancedProgramming/CW7.html','https://busenurkaraca.github.io/AdvancedProgramming/CourseData.html','https://busenurkaraca.github.io/AdvancedProgramming/CW7','https://busenurkaraca.github.io/AdvancedProgramming/Database.html','https://busenurkaraca.github.io/AdvancedProgramming/HW3.html']
 function installCB(e) {
   e.waitUntil(
     caches.open(CACHE)
