@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Güneş Animasyon </title>
+
+
+<style>
+.gunes {
+    animation: gunes 10s ease-out infinite;
+}
+
+@keyframes gunes {
+  0% {
+    opacity: 0;
+    transform: translateZ(-2000em);
+  }
+  20% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 1;
+    transform: scale(1) ;
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em) ;
+  }
+}
+
+
+.animation {
+  perspective: 800px;
+  transform-style: preserve3d;
+}
+body {
+  background: url("https://avatars.mds.yandex.net/get-pdb/1383054/d36c229d-b5bf-44c7-aeb3-a4c2c856a2e2/s1200");
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.animation {
+  left: 750px;
+  top: 150px;
+  height: 17em;
+  position: absolute;
+  transform: translate(-50%, 0%);
+  width: 15em;
+}
+
+img {
+  width: 100%;
+}
+
+.gunes {
+   float:right; 
+   border-radius: 50px; 
+   margin-top: -3px; 
+   margin-right: 50px;   
+}
+
+.kuslar {
+   width: 500%
+   top: 30px; 
+   right: 150px;   
+}
+
+</style>
+</head>
+
+<div class="animation">
+
+  <img src = "http://www.hareketligifler.net/data/media/278/gunes-hareketli-resim-0190.gif" id = "gunes" class = "gunes">
+  <img src = "http://www.hareketligifler.net/data/media/230/kus-hareketli-resim-0417.gif" id = "kuslar" class = "kuslar">
+</div>
+
+
+
+</body>
+</html>
