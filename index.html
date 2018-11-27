@@ -6,6 +6,15 @@
     <title>My Page </title>
 	<link rel="Shortcut Icon" href="rose.png" type="image/x-icon">
 	<link rel="manifest" href="manifest.json">
+	
+ <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('https://github.com/busenurkaraca/AdvancedProgramming/sw.js')
+        .then((reg) => { console.log('SW starts', reg.active) })
+        .catch(console.log)
+    }
+  </script>
 <style>
 body {
   background-color : black;
