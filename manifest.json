@@ -1,12 +1,12 @@
 {
   "name": "Busenur Karaca",
-  "start_url": "https://busenurkaraca.github.io/AdvancedProgramming/index.html",
+  "start_url": "/AdvancedProgramming/index.html",
   "display": "standalone",
   "background_color": "cyan",
   "icons": [
     {
       "src": "rose.png",
-      "sizes": "192x192",
+      "sizes": "514x514",
       "type": "image/png"
     }
   ]
