@@ -11,7 +11,7 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/AdvancedProgramming/sw.js')
-        .then((reg) => { console.log('SW starts', reg.active) })
+        .then((reg) => { console.log('SW Registered', reg.active) })
         .catch(console.log)
     }
   </script>
