@@ -1,8 +1,11 @@
 {
-  "name": "Busenur Karaca",
+  "name": "BKAPP",
+  "short_name": "BKAPP",
+  "description": "Advanced Programming work files",
   "start_url": "/AdvancedProgramming/index.html",
   "display": "standalone",
-  "background_color": "cyan",
+  "background_color": "yellow",
+  "theme_color": "yellow",
   "icons": [
     {
       "src": "rose.png",
