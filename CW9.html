@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Canvas </title>
+
+  <style>
+    svg, canvas {
+        background: peachpuff;
+        font: 10px arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Using Canvas</h2>
+<canvas id=canvas width=500 height=500></canvas>
+<p>Canvas is an image drawn by JavaScript</p>
+<pre id=sample></pre>
+<input id=renkler type="color" value="#ff0000">
+<input type=button value="İç Dolguları Değiştir" onClick="newColor()" >
+
+
+<p>
+Şeklin boyutu:
+<input id=boyut type=text>
+<input type=button value="Boyut Değiştir" onClick="newBoyut()" >
+</p>
+<script>
+"use strict";
+function draw() {
+    cx.beginPath(); cx.lineWidth = 4;
+    cx.fillStyle = "white"; cx.strokeStyle = "blue";
+    cx.arc(50, 50, 40, 0, 2*Math.PI);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("arc",44,55);
+
+    cx.beginPath(); cx.lineWidth = 5;
+    cx.fillStyle = "white"; cx.strokeStyle = "red";
+    cx.rect(110, 10, 100, 80);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("rect",148,55);
+}
+function newColor() {
+	cx.clearRect(0, 0, 500, 500);
+    cx2.beginPath(); cx.lineWidth = 4;
+    cx2.fillStyle = renkler.value; cx2.strokeStyle = "pink";
+    cx2.arc(50, 50, 40, 0, 2*Math.PI);
+    cx2.fill(); cx2.stroke();
+    cx2.fillStyle = "black"; 
+    cx2.fillText("arc",148,55);
+
+    cx2.beginPath(); cx2.lineWidth = 5;
+    cx2.fillStyle = renkler.value; cx.strokeStyle = "pink";
+    cx2.rect(110, 10, 100, 80);
+    cx2.fill(); cx.stroke();
+    cx2.fillStyle = "black"; 
+    cx2.fillText("rect",148,55);
+}
+function newBoyut() {
+	cx.clearRect(0, 0, 500, 500);
+    cx2.beginPath(); cx.lineWidth = 4;
+    cx2.fillStyle = renkler.value; cx2.strokeStyle = "blue";
+    cx2.arc(50, 50, boyut.value, 0, 2*Math.PI);
+    cx2.fill(); cx2.stroke();
+    cx2.fillStyle = "black"; 
+    cx2.fillText("arc",148,55);
+
+    cx2.beginPath(); cx2.lineWidth = 5;
+    cx2.fillStyle = renkler.value; cx.strokeStyle = "pink";
+    cx2.rect(110, 10, boyut.value, 80);
+    cx2.fill(); cx.stroke();
+    cx2.fillStyle = "black"; 
+    cx2.fillText("rect",148,55);
+}
+    //sample.innerText = draw;
+    const cx = canvas.getContext("2d");
+	const cx2 = canvas.getContext("2d");
+    draw();
+</script>
+
+</body>
+</html>
