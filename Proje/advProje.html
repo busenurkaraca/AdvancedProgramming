@@ -9,7 +9,6 @@
 body {
   background-color: lightblue; 
 }
-
 .boiler{
     width: 512px;
     padding: 20px;
@@ -18,22 +17,21 @@ body {
 	margin-top:150px;
     margin-left:475px;
 }
-
 .star{
     width: 128px;
     padding: 20px;
     position: relative;
-    top: 100px;
+    top: 50px;
+	left: -250px;
 	margin-bottom: -200px;
-	margin-top:100px;
-    margin-left:150px;
+	margin-top:50px;
+    margin-left:50px;
 }
-
 .cloud{
     width: 128px;
     padding: 20px;
     position: relative;
-    top: 30px;
+    top: 0px;
 	margin-bottom: -200px;
 	margin-top:100px;
     margin-left:1250px;
@@ -61,10 +59,11 @@ body {
 .yardimiste{
     padding: 20px;
     position: relative;
-    top:250px;
+    top:300px;
 	margin-bottom: -200px;
-	margin-top:50px;
+	margin-top:120px;
     margin-left:1250px;
+	color: SlateBlue;
 }
 </style>
 </head>
@@ -75,29 +74,19 @@ body {
 <h1>SADAKAT'AŞI</h1>
 </div>
 
-<div class="yardimiste">
-<a href="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardim_ihtiyac.html"> YARDIMA İHTİYACIM VAR </a>
-</div>
 
-<div class="yardimet">
-<a href="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardimet.html"> YARDIM ETMEK İSTERİM </a>
-</div>
+<a href="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardim_ihtiyac.html" class="yardimiste"> YARDIMA İHTİYACIM VAR </a>
 
-<div class="star">
- <img id="star" src="star.png" alt="star" /> </a>
-</div>
+<a href="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardimet.html" class="yardimet"> YARDIM ETMEK İSTERİM </a>
 
-<div class="cloud">
-<img id="cloud" src="snow.png" alt="cloud" /> </a>
-</div>
+ <img class="star" src="star.png" alt="star" /> 
 
-<div class="boiler">
-<img id="boiler" src="boiler.png" alt="boiler" />
-</div>
+<img class="cloud" src="snow.png" alt="cloud" /> 
+
+<img class="boiler" src="boiler.png" alt="boiler" />
+
 
 <!-- <input type=button value="İç Dolguları Değiştir" onClick="newColor()" > 
-
-
 <p>
 Şeklin boyutu:
 <input id=boyut type=text>
@@ -107,13 +96,10 @@ body {
 <script>
 "use strict";
 function draw() {
-
 }
 function newColor() {
-
 }
 function newBoyut() {
-
 }
    
 </script>

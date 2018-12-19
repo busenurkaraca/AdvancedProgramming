@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>SADAKAT'AŞI </title>
+    <title>Yardımcı Olmak İstiyorum </title>
 
 <style>
 body {
@@ -28,54 +28,55 @@ YARDIMCI OLMAK İSTERİM </p>
 
  <fieldset>
   <legend>Kişisel Bilgiler</legend><br/>
-  Adı: <input name="personal_fname" type="text" size="20" tabindex="1"/> <br/><br/>   
-  Soyadı: <input name="personal_lname" type="text" size="25" tabindex="2"/><br/><br/>
-  Telefon Numarası: <input name="personal_number" type="number" size="100" tabindex="3"/><br/><br/>
-  E-mail: <input name="personal_mail" type="text" size="25" tabindex="4"/><br/><br/>
-  Adresi: <input name="personal_address" type="text" size="55" tabindex="5"/><br/><br/>
+  Adı: <input class="gonull-input" name="personal_fname" type="text" size="20" tabindex="1" data-key = gonullu_ad > <br/><br/>   
+  Soyadı: <input class="gonullu-input" name="personal_lname" type="text" size="25" tabindex="2" data-key = gonullu_soyad ><br/><br/>
+  Telefon Numarası: <input class="gonullu-input" name="personal_number" type="number" size="100" tabindex="3" data-key = gonullu_no ><br/><br/>
+  E-mail: <input class="gonullu-input" name="personal_mail" type="text" size="25" tabindex="4" data-key = gonullu_mail ><br/><br/>
+  Adresi: <input class="gonullu-input" name="personal_address" type="text" size="55" tabindex="5" data-key = gonullu_adres  ><br/><br/>
 
   <!-- ...diğer kişisel bilgiler... -->
  </fieldset>
  <fieldset>
-  <legend>Tıbbî Geçmişi</legend><br/>
-  <input name="gecirilen_hastalik"
+  <legend>Yardım Edilmek İstenen Alanlar</legend><br/>
+  <input name="yardım_alani"
          type="checkbox"
-         value="bogmaca" tabindex="20"/> Boğmaca    
-  <input name="gecirilen_hastalik"
+         value="kumanya" tabindex="20"/> Kumanya    
+  <input name="yardım_alani"
          type="checkbox"
-         value="kabakulak" tabindex="21"/> Kabakulak    
-  <input name="gecirilen_hastalik"
+         value="asevi" tabindex="21"/> Aşevi    
+  <input name="yardım_alani"
          type="checkbox"
-         value="kizamik" tabindex="22"/> Kızamık    
- <input name="gecirilen_hastalik"
+         value="yetim" tabindex="22"/> Yetim    
+ <input name="yardım_alani"
          type="checkbox"
-         value="sucicegi" tabindex="23"/> Suçiçeği<br/><br/>
+         value="burs" tabindex="23"/> Burs
+ <input name="yardım_alani"
+         type="checkbox"
+         value="ayakkabi" tabindex="22"/> Ayakkabı    
+ <input name="yardım_alani"
+         type="checkbox"
+         value="kiyafet" tabindex="23"/> Kıyafet<br/><br/>
 
   <!-- ...tıbbi geçmişi ile ilgili diğer... -->
  </fieldset>
  <fieldset>
-  <legend>İlaç Tedavisi</legend><br/>
-  Halen kullanmakta olduğunuz ilaçlar var mı?<br/>
-  <input name="medication_now"
-         type="radio"
-         value="Evet" tabindex="35"/> Evet    
-  <input name="medication_now"
-         type="radio"
-         value="Hayir" tabindex="35"/>Hayır<br/><br/>
+  <legend>Bilgilendirme Kutusu</legend><br/>
 
-  Eğer ilaç kullanıyorsanız, aşağıya kullandığınız ilaçları ve
-  günlük dozlarını belirtiniz:<br/>
-  <textarea name="kullandigi_ilaclar"
+  Yapmak istediğiniz yardımla alakalı belirtmek istedikleriniz: <br/>
+  <textarea class="gonullu-input" data-key = ek_bilgi name="ek_bilgiler"
             rows="10" cols="60"
             tabindex="40">
   </textarea>
  </fieldset>
+ 
+<button class="buton "type="button" id="kayit_buton" onclick="add_gonullu()">Form Gonder</button>
 
-<script>
-"use strict";
+<ul id="userList"></ul>
+<div id="userDetail"></div>
 
-   
-</script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+ <!-- firebase sdk link goes here -->
+ <script type="text/javascript" src="app.js"></script>
 
 </body>
 </html>

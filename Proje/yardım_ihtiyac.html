@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Yardıma İhtiyacım Var </title>
+	
+
+<style>
+body {
+  background-color: lightblue; 
+}
+
+.baslik{
+	font-size: 24pt;
+	font-family: Comic Sans MS;
+	font-weight:bold; 
+	text-align: center;
+    position: relative;
+	color: SlateBlue;
+}
+.buton{
+
+}
+
+</style>
+</head>
+
+<body>
+
+<p class = "baslik" >
+YARDIM ALMAK İSTERİM </p>
+
+ <fieldset>
+  <legend>Kişisel Bilgiler</legend><br/>
+  Adı: <input class="user-input" id="personal_fname" type="text" size="20" tabindex="1" data-key = ad > <br/><br/>   
+  Soyadı: <input class="user-input" id="personal_lname" type="text" size="25" tabindex="2" data-key = soyad ><br/><br/>
+  Telefon Numarası: <input class="user-input" name="personal_number" type="number" size="100" tabindex="3"data-key = number ><br/><br/>
+  E-mail: <input class="user-input" name="personal_mail" type="text" size="25" tabindex="4" data-key=mail ><br/><br/>
+  Adresi: <input class="user-input" name="personal_address" type="text" size="55" tabindex="5" data-key = adres ><br/><br/>
+  Meslek:<select class="user-input" data-key = meslek name="meslekler">
+	<option value="ogr">Öğrenci</option>
+	<option value="ogrt">Öğretmen</option>
+	<option value="sofor">Şoför</option>
+	<option value="asci">Aşçı</option>
+	<option value="memur">Memur</option>
+	<option value="mimar">Mimar</option>
+	<option value="muhendis">Mühendis</option>
+	</select><br/><br/>
+	
+  Eğitim Durumu:<select class="user-input" data-key = egitim_durumu name="meslekler">
+	<option value="ilkokul">İlkokul</option>
+	<option value="ortaokul">Ortaokul</option>
+	<option value="lise">Lise</option>
+	<option value="lisans">Lisans</option>
+	<option value="yksk_lisans">Yüksek</option>
+	</select><br/><br/>
+
+
+
+ <!-- <input  class="user-input" data-key = egitim_durumu name="medication_now" type="radio" value="ilkokul" tabindex="35"/> İlkokul 
+  <input class="user-input" data-key = egitim_durumu  name="medication_now" type="radio" value="ortaokul" tabindex="35"/> Ortaokul
+	<input class="user-input" data-key = egitim_durumu  name="medication_now" type="radio" value="lise" tabindex="35"/> Lise 
+	<input class="user-input" data-key = egitim_durumu  name="medication_now" type="radio" value="lisans" tabindex="35"/> Lisans 
+	<input class="user-input" data-key = egitim_durumu  name="medication_now" type="radio" value="yksk_lisans" tabindex="35"/> Yüksek Lisans 
+ 
+  ...diğer kişisel bilgiler... -->
+  
+ </fieldset>
+ <fieldset>
+  <legend >Yardım İstenen Alanlar</legend><br/>
+  <input  class="user-input" data-key = yardım_alani name="yardım_alani"
+         type="checkbox"
+         value="kumanya" tabindex="20"/> Kumanya    
+  <input  class="user-input" data-key = yardım_alani name="yardım_alani"
+         type="checkbox"
+         value="asevi" tabindex="21"/> Yiyecek    
+  <input  class="user-input" data-key = yardım_alani name="yardım_alani"
+         type="checkbox"
+         value="burs" tabindex="22"/> Burs
+  <input  class="user-input" data-key = yardım_alani name="yardım_alani"
+         type="checkbox"
+         value="kiyafet" tabindex="23"/> Kıyafet
+  <input  class="user-input" data-key = yardım_alani name="yardım_alani"
+         type="checkbox"
+         value="ayakkabi" tabindex="24"/> Ayakkabı  		 
+ <input  class="user-input" data-key = yardım_alani name="yardım_alani"
+         type="checkbox"
+         value="yetim" tabindex="25"/> Yetim<br/><br/>
+
+  <!-- ...tıbbi geçmişi ile ilgili diğer... -->
+ </fieldset>
+ <fieldset>
+  <legend>Yardım Ayrıntıları</legend><br/>
+  İhtiyacınıcla İlgili Belirtmek İstedikleriniz : <br/>
+  <textarea class="user-input" data-key = ek_bilgi name="ihtiyaclar"
+            rows="10" cols="60"
+            tabindex="40">
+  </textarea>
+ </fieldset>
+<br/> 
+<button class="buton "type="button" id="kayit_buton" onclick="add()">Form Gonder</button>
+
+<ul id="userList"></ul>
+<div id="userDetail"></div>
+
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+ <!-- firebase sdk link goes here -->
+ <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
