@@ -7,101 +7,79 @@
     <title>SADAKAT'AŞI </title>
 
 <style>
-body {
-  background-color: lightblue; 
+    body{
+        background-color:mistyrose;
+        max-width: 1000px;
+        height: 300px;
+        text-align: center;
+        font-size: 18px;
+        color:black;
+        font-family: "Comic Sans MS";
+        margin:0 auto;
+    }
+#main{
+    height: 300px;
+    width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+   /* margin-left: 250px; */
+    min-width: 400px;
+    min-height: 800px;
 }
-.boiler{
-    width: 512px;
-    padding: 20px;
-    position: relative;
-    top: -50px;
-	margin-top:150px;
-    margin-left:475px;
-}
-.star{
-    width: 128px;
-    padding: 20px;
-    position: relative;
-    top: 50px;
-	left: -250px;
-	margin-bottom: -200px;
-	margin-top:50px;
-    margin-left:50px;
-}
-.cloud{
-    width: 128px;
-    padding: 20px;
-    position: relative;
-    top: 0px;
-	margin-bottom: -200px;
-	margin-top:100px;
-    margin-left:1250px;
-}
-.baslik{
-	font-size: 36pt;
+
+#baslik{
+	font-size: 48pt;
 	font-family: Comic Sans MS;
-    padding: 20px;
-    position: relative;
-    top: 30px;
-	margin-bottom:-200px;
-	margin-top:-125px;
-    margin-left:400px;
-	color: SlateBlue;
+	color: IndianRed ;
 }
-.yardimet{
-    padding: 20px;
-    position: relative;
-    top: 250px;
-	margin-bottom: -200px;
-	margin-top:120px;
-    margin-left:125px;
-	color: SlateBlue;
-}
-.yardimiste{
-    padding: 20px;
-    position: relative;
-    top:300px;
-	margin-bottom: -200px;
-	margin-top:120px;
-    margin-left:1250px;
-	color: SlateBlue;
-}
+
+    .buttonStar{
+        /*float: left;*/
+        width: 200px;
+        height: 40px;
+        background: IndianRed;
+        font-size: 13px;
+        color:white;
+        font-family :Comic Sans MS;
+        border-radius: 5px;
+        border: solid 2px #fff;
+    }
+    .div {
+
+        float: left;
+        display: inline-block;
+        height: 200px;
+        width: 300px;
+        margin: 10px;
+       // color: #FFF;
+
+    }
 </style>
 </head>
 
 <body>
 
-<div class="baslik">
-<h1>SADAKAT'AŞI</h1>
+<h1 id="baslik">SADAKAT'AŞI</h1></br></br></br>
+<div id="main">
+    <div class="div">
+        <img class="star" src="star.png" alt="star" /> </br>
+        <button class="buttonStar" onclick="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardimet.html" id="buton">YARDIM ETMEK İSTERİM</button>
+        <!-- <a href="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardim_ihtiyac.html" class="yardimiste"> YARDIMA İHTİYACIM VAR </a> -->
+    </div>
+    <div class="div">
+         <img class="boiler" src="care.png" alt="boiler" />
+     </div>
+     <div class="div">
+         <img class="cloud" src="snow.png" alt="cloud" /></br>
+         <button class="buttonStar" onclick="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardim_ihtiyac.html" id="buton">YARDIMA İHTİYACIM VAR</button>
+            <!-- <a href="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardimet.html" class="yardimet"> YARDIM ETMEK İSTERİM </a> -->
+    </div>
 </div>
 
 
-<a href="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardim_ihtiyac.html" class="yardimiste"> YARDIMA İHTİYACIM VAR </a>
-
-<a href="https://busenurkaraca.github.io/AdvancedProgramming/Proje/yardimet.html" class="yardimet"> YARDIM ETMEK İSTERİM </a>
-
- <img class="star" src="star.png" alt="star" /> 
-
-<img class="cloud" src="snow.png" alt="cloud" /> 
-
-<img class="boiler" src="boiler.png" alt="boiler" />
-
-
-<!-- <input type=button value="İç Dolguları Değiştir" onClick="newColor()" > 
-<p>
-Şeklin boyutu:
-<input id=boyut type=text>
-<input type=button value="Boyut Değiştir" onClick="newBoyut()" >
-</p> -->
-
 <script>
 "use strict";
-function draw() {
-}
-function newColor() {
-}
-function newBoyut() {
-}
+
    
 </script>
 
