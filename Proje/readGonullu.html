@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Table of Capitals </title>
+</head>
+<style>
+    table { border-collapse: collapse;}
+    th { color: white; padding: 15px 15px; border: 4px double #C0C0C0; background:slateblue;}
+    td {
+        color: red;
+        border: 2px dashed blue;
+        padding: 5px 5px;
+        text-align: center;
+    }
+</style>
+
+<body>
+<center>
+    <h2 id=title></h2>
+    <table id="tablo"></table>
+    <form>
+        <output id=out style="width:40px" >
+    </form>
+</center>
+
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<!-- firebase sdk link goes here -->
+<script type="text/javascript" src="app.js"></script>
+
+<script>
+    readDataGonullu();
+    console.log(gonulluler);
+</script>
+
+</body>
+</html>

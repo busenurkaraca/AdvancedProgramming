@@ -7,84 +7,154 @@
 
 <style>
 body {
-  background-color: lightblue; 
+  background-color: lightblue;
+  font-family: Comic Sans MS;
 }
-
 .baslik{
 	font-size: 24pt;
 	font-family: Comic Sans MS;
 	font-weight:bold; 
 	text-align: center;
     position: relative;
-	color: SlateBlue;
+	color: Navy;
 }
-
+#yardim_alanlari input {
+    float: inside;
+    margin: 0 0px 0px 0;
+    list-style: none;
+    width: 100px;
+    height: 40px;
+    background: Navy;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid 1px #fff;
+    text-align: center;
+}
+#yardim_alan {
+    float: inside;
+    margin: 0 0px 0px 0;
+    list-style: none;
+    width: 200px;
+    height: 20px;
+    background: Navy;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid 1px #fff;
+    text-align: center;
+}
+#meslekler{
+    float: inside;
+    margin: 0 0px 0px 0;
+    list-style: none;
+    width: 330px;
+    height: 20px;
+    background: Navy;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid 1px #fff;
+    text-align: center;
+}
+#egitim_durum{
+    float: inside;
+    margin: 0 0px 0px 0;
+    list-style: none;
+    width: 272px;
+    height: 20px;
+    background: Navy;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid 1px #fff;
+    text-align: center;
+}
+input[type=number]{
+    width: 257px;
+}
+.buton{
+    float: inside;
+    margin: 0 0px 0px 0;
+    list-style: none;
+    width: 200px;
+    height: 30px;
+    background: SteelBlue;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid 1px #fff;
+    text-align: center;
+}
+.buton:hover{
+    background: SeaShell;
+    color: black;
+}
+fieldset {
+    border:2px solid darkslategrey;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+}
 </style>
 </head>
 
 <body>
 
-<p class = "baslik" >
-YARDIM ALMAK İSTERİM </p>
+<p class = "baslik" >YARDIM ALMAK İSTERİM </p>
 
  <fieldset>
   <legend>Kişisel Bilgiler</legend><br/>
-  Adı: <input name="personal_fname" type="text" size="20" tabindex="1"/> <br/><br/>   
-  Soyadı: <input name="personal_lname" type="text" size="25" tabindex="2"/><br/><br/>
-  Telefon Numarası: <input name="personal_number" type="number" size="100" tabindex="3"/><br/><br/>
-  E-mail: <input name="personal_mail" type="text" size="25" tabindex="4"/><br/><br/>
-  Adresi: <input name="personal_address" type="text" size="55" tabindex="5"/><br/><br/>
-  Meslek:<select name="meslekler">
-	<option value="ogr">Öğrenci</option>
-	<option value="ogrt">Öğretmen</option>
-	<option value="sofor">Şoför</option>
-	<option value="asci">Aşçı</option>
-	<option value="memur">Memur</option>
-	<option value="mimar">Mimar</option>
-	<option value="muhendis">Mühendis</option>
+  Adı: <input class="user-input" name="personal_fname" type="text" size="50" data-key = user_ad ><br/><br/>
+  Soyadı: <input class="user-input" name="personal_lname" type="text" size="47" data-key = user_soyad ><br/><br/>
+  Telefon Numarası: <input class="user-input" name="personal_number" type="number" data-key = user_number ><br/><br/>
+  E-mail: <input class="user-input" name="personal_mail" type="text" size="47" data-key = user_mail ><br/><br/>
+  Adresi: <input class="user-input" name="personal_address" type="text" size="47" data-key = user_adres ><br/><br/>
+  Meslek:<select class="user-input" id="meslekler" data-key = user_meslek>
+	<option value="Öğrenci">Öğrenci</option>
+	<option value="Öğretmen">Öğretmen</option>
+	<option value="Şoför">Şoför</option>
+	<option value="Aşçı">Aşçı</option>
+	<option value="Memur">Memur</option>
+	<option value="Mimar">Mimar</option>
+	<option value="Mühendis">Mühendis</option>
 	</select><br/><br/>
-  Eğitim Durumu: <input name="medication_now" type="radio" value="ilkokul" tabindex="35"/> İlkokul <input name="medication_now" type="radio" value="ortaokul" tabindex="35"/> Ortaokul
-	<input name="medication_now" type="radio" value="lise" tabindex="35"/> Lise <input name="medication_now" type="radio" value="lisans" tabindex="35"/> Lisans <input name="medication_now" type="radio" value="yksk_lisans" tabindex="35"/> Yüksek Lisans 
- 
- <!-- ...diğer kişisel bilgiler... -->
+  Eğitim Durumu:
+     <select class="user-input" id="egitim_durum" data-key = user_egitim_durum >
+     <option value="İlkokul">İlkokul</option>
+     <option value="Ortaokul">Ortaokul</option>
+     <option value="Lise">Lise</option>
+     <option value="Ön Lisans">Ön Lisans</option>
+     <option value="Lisans">Lisans</option>
+     <option value="Doktora">Doktora</option>
+ </select><br/><br/>
  </fieldset>
  <fieldset>
-  <legend>Yardım İstenen Alanlar</legend><br/>
-  <input name="yardım_alani"
-         type="checkbox"
-         value="kumanya" tabindex="20"/> Kumanya    
-  <input name="yardım_alani"
-         type="checkbox"
-         value="asevi" tabindex="21"/> Yiyecek    
-  <input name="yardım_alani"
-         type="checkbox"
-         value="burs" tabindex="22"/> Burs
-  <input name="yardım_alani"
-         type="checkbox"
-         value="kiyafet" tabindex="23"/> Kıyafet
-  <input name="yardım_alani"
-         type="checkbox"
-         value="ayakkabi" tabindex="24"/> Ayakkabı  		 
- <input name="yardım_alani"
-         type="checkbox"
-         value="yetim" tabindex="25"/> Yetim<br/><br/>
-
-  <!-- ...tıbbi geçmişi ile ilgili diğer... -->
+  <legend>Yardım İstenen Alanlar</legend>
+     Lütfen yardım almak istediğiniz alanı seçin:
+     <select class="user-input" id="yardim_alan" data-key = user_alan>
+     <option value="Kumanya">Kumanya</option>
+     <option value="Yetim">Yetim</option>
+     <option value="Aşevi">Aşevi</option>
+     <option value="Burs">Burs</option>
+     <option value="Kıyafet">Kıyafet</option>
+     <option value="Ayakkabı">Ayakkabı</option>
+ </select><br/><br/>
  </fieldset>
  <fieldset>
-  <legend>Yardım Ayrıntıları</legend><br/>
-  İhtiyacınıcla İlgili Belirtmek İstedikleriniz : <br/>
-  <textarea name="ihtiyaclar"
-            rows="10" cols="60"
-            tabindex="40">
-  </textarea>
+  <legend>Yardım Ayrıntıları</legend>
+  İhtiyacınızla İlgili Belirtmek İstedikleriniz : <br/>
+  <textarea class="user-input" name="ihtiyaclar" rows="10" cols="60" data-key = user_ek_bilgi> </textarea> <br/>
+     <button class="buton" type="button" id="kayit_buton" onclick="add()">İhtiyaç Formu Gönder</button>
  </fieldset>
 
-<script>
-"use strict";
+<ul id="userList"></ul>
+<div id="userDetail"></div>
 
-   
-</script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<!-- firebase sdk link goes here -->
+<script type="text/javascript" src="app.js"></script>
+
 
 </body>
 </html>

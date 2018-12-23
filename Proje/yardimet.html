@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Yardımcı Olmak İstiyorum </title>
-
 <style>
 body {
-  background-color: lightblue; 
+    background-color: bisque;
+    font-family: Comic Sans MS;
 }
 
 .baslik{
@@ -15,68 +15,106 @@ body {
 	font-family: Comic Sans MS;
 	text-align: center;
     position: relative;
-	color: SlateBlue;
+	color: IndianRed;
 }
+input[type=number]{
+ width: 257px;
+}
+#yardim_alanlari input {
+ float: inside;
+ margin: 0 0px 0px 0;
+ list-style: none;
+ width: 100px;
+ height: 40px;
+ background: IndianRed;
+ color: white;
+ font-size: 15px;
+ border-radius: 5px;
+ border: solid 1px #fff;
+ text-align: center;
+}
+.buton{
+ float: inside;
+ margin: 0 0px 0px 0;
+ list-style: none;
+ width: 200px;
+ height: 30px;
+ background: salmon;
+ color: white;
+ font-size: 15px;
+ border-radius: 5px;
+ border: solid 1px #fff;
+ text-align: center;
+}
+#yardim_alan {
+    float: inside;
+    margin: 0 0px 0px 0;
+    list-style: none;
+    width: 200px;
+    height: 20px;
+    background: salmon;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid 1px #fff;
+    text-align: center;
+}
+.buton:hover{
+    background: SeaShell;
+    color: black;
+}
+input:hover{
+    background: lightcoral;
+}
+#ek_bilgiler:hover{
 
+}
+fieldset {
+    border:2px solid darkslategrey;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+}
 </style>
 </head>
 
 <body>
-
-<p class = "baslik" >
-YARDIMCI OLMAK İSTERİM </p>
-
+<p class = "baslik" > YARDIMCI OLMAK İSTERİM </p>
  <fieldset>
   <legend>Kişisel Bilgiler</legend><br/>
-  Adı: <input class="gonull-input" name="personal_fname" type="text" size="20" tabindex="1" data-key = gonullu_ad > <br/><br/>   
-  Soyadı: <input class="gonullu-input" name="personal_lname" type="text" size="25" tabindex="2" data-key = gonullu_soyad ><br/><br/>
-  Telefon Numarası: <input class="gonullu-input" name="personal_number" type="number" size="100" tabindex="3" data-key = gonullu_no ><br/><br/>
-  E-mail: <input class="gonullu-input" name="personal_mail" type="text" size="25" tabindex="4" data-key = gonullu_mail ><br/><br/>
-  Adresi: <input class="gonullu-input" name="personal_address" type="text" size="55" tabindex="5" data-key = gonullu_adres  ><br/><br/>
-
-  <!-- ...diğer kişisel bilgiler... -->
+  Adı: <input class="gonullu-input" name="personal_fname" type="text" size="50" data-key = gonullu_ad > <br/><br/>
+  Soyadı: <input class="gonullu-input" name="personal_lname" type="text" size="47" data-key = gonullu_soyad ><br/><br/>
+  Telefon Numarası: <input class="gonullu-input" name="personal_number" type="number" size="50" data-key = gonullu_no ><br/><br/>
+  E-mail: <input class="gonullu-input" name="personal_mail" type="text" size="47" data-key = gonullu_mail ><br/><br/>
+  Adresi: <input class="gonullu-input" name="personal_address" type="text" size="47" data-key = gonullu_adres  ><br/><br/>
  </fieldset>
- <fieldset>
-  <legend>Yardım Edilmek İstenen Alanlar</legend><br/>
-  <input name="yardım_alani"
-         type="checkbox"
-         value="kumanya" tabindex="20"/> Kumanya    
-  <input name="yardım_alani"
-         type="checkbox"
-         value="asevi" tabindex="21"/> Aşevi    
-  <input name="yardım_alani"
-         type="checkbox"
-         value="yetim" tabindex="22"/> Yetim    
- <input name="yardım_alani"
-         type="checkbox"
-         value="burs" tabindex="23"/> Burs
- <input name="yardım_alani"
-         type="checkbox"
-         value="ayakkabi" tabindex="22"/> Ayakkabı    
- <input name="yardım_alani"
-         type="checkbox"
-         value="kiyafet" tabindex="23"/> Kıyafet<br/><br/>
 
-  <!-- ...tıbbi geçmişi ile ilgili diğer... -->
- </fieldset>
+<fieldset>
+    <legend>Yardım Edilecek Alanlar</legend>
+    Lütfen yardımda bulunmak istediğiniz alanı seçin:
+    <select class="gonullu-input" id="yardim_alan" data-key = gonullu_alan>
+        <option value="Kumanya">Kumanya</option>
+        <option value="Yetim">Yetim</option>
+        <option value="Aşevi">Aşevi</option>
+        <option value="Burs">Burs</option>
+        <option value="Kıyafet">Kıyafet</option>
+        <option value="Ayakkabı">Ayakkabı</option>
+    </select><br/><br/>
+</fieldset>
+
  <fieldset>
   <legend>Bilgilendirme Kutusu</legend><br/>
-
   Yapmak istediğiniz yardımla alakalı belirtmek istedikleriniz: <br/>
-  <textarea class="gonullu-input" data-key = ek_bilgi name="ek_bilgiler"
-            rows="10" cols="60"
-            tabindex="40">
+  <textarea class="gonullu-input" data-key = ek_bilgi id="ek_bilgiler" rows="10" cols="60" >
   </textarea>
+     <br/>
+     <button class="buton "type="button" id="kayit_buton" onclick="add_gonullu()">Yardımcı Formu Gönder</button>
  </fieldset>
- 
-<button class="buton "type="button" id="kayit_buton" onclick="add_gonullu()">Form Gonder</button>
 
 <ul id="userList"></ul>
 <div id="userDetail"></div>
-
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
  <!-- firebase sdk link goes here -->
  <script type="text/javascript" src="app.js"></script>
-
 </body>
 </html>
