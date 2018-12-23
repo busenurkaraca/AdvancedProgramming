@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Yardımcı Olmak İstiyorum </title>
+    <link rel="icon" href="rose.png">
 <style>
 body {
     background-color: bisque;
@@ -82,17 +83,17 @@ fieldset {
 <p class = "baslik" > YARDIMCI OLMAK İSTERİM </p>
  <fieldset>
   <legend>Kişisel Bilgiler</legend><br/>
-  Adı: <input class="gonullu-input" name="personal_fname" type="text" size="50" data-key = gonullu_ad > <br/><br/>
-  Soyadı: <input class="gonullu-input" name="personal_lname" type="text" size="47" data-key = gonullu_soyad ><br/><br/>
-  Telefon Numarası: <input class="gonullu-input" name="personal_number" type="number" size="50" data-key = gonullu_no ><br/><br/>
-  E-mail: <input class="gonullu-input" name="personal_mail" type="text" size="47" data-key = gonullu_mail ><br/><br/>
-  Adresi: <input class="gonullu-input" name="personal_address" type="text" size="47" data-key = gonullu_adres  ><br/><br/>
+  Adı: <input class="gonullu-input" id="personal_fname" type="text" size="50" data-key = AD > <br/><br/>
+  Soyadı: <input class="gonullu-input" id="personal_lname" type="text" size="47" data-key = SOYAD ><br/><br/>
+  Telefon Numarası: <input class="gonullu-input" id="personal_number" type="number" size="50" data-key = NO ><br/><br/>
+  E-mail: <input class="gonullu-input" id="personal_mail" type="text" size="47" data-key = MAIL ><br/><br/>
+  Adresi: <input class="gonullu-input" id="personal_address" type="text" size="47" data-key = ADRES ><br/><br/>
  </fieldset>
 
 <fieldset>
     <legend>Yardım Edilecek Alanlar</legend>
     Lütfen yardımda bulunmak istediğiniz alanı seçin:
-    <select class="gonullu-input" id="yardim_alan" data-key = gonullu_alan>
+    <select class="gonullu-input" id="yardim_alan" data-key = GONULLU_ALAN>
         <option value="Kumanya">Kumanya</option>
         <option value="Yetim">Yetim</option>
         <option value="Aşevi">Aşevi</option>
@@ -105,10 +106,11 @@ fieldset {
  <fieldset>
   <legend>Bilgilendirme Kutusu</legend><br/>
   Yapmak istediğiniz yardımla alakalı belirtmek istedikleriniz: <br/>
-  <textarea class="gonullu-input" data-key = ek_bilgi id="ek_bilgiler" rows="10" cols="60" >
+  <textarea class="gonullu-input" data-key = EK_BİLGİ id="ek_bilgiler" rows="10" cols="60" >
   </textarea>
      <br/>
      <button class="buton "type="button" id="kayit_buton" onclick="add_gonullu()">Yardımcı Formu Gönder</button>
+     <button class="buton "type="button" id="sifirla_buton" onclick="sifirla()">Formu Sıfırla</button>
  </fieldset>
 
 <ul id="userList"></ul>
@@ -116,5 +118,16 @@ fieldset {
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
  <!-- firebase sdk link goes here -->
  <script type="text/javascript" src="app.js"></script>
+<script>
+    function sifirla(){
+        personal_fname.value = "";
+        personal_lname.value = "";
+        personal_number.value = "";
+        personal_mail.value = "";
+        personal_address.value = "";
+        yardim_alan.value = "Kumanya";
+        ek_bilgiler.value = "";
+    }
+</script>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Yardıma İhtiyacım Var </title>
-
+    <link rel="icon" href="rose.png">
 <style>
 body {
   background-color: lightblue;
@@ -105,12 +105,12 @@ fieldset {
 
  <fieldset>
   <legend>Kişisel Bilgiler</legend><br/>
-  Adı: <input class="user-input" name="personal_fname" type="text" size="50" data-key = user_ad ><br/><br/>
-  Soyadı: <input class="user-input" name="personal_lname" type="text" size="47" data-key = user_soyad ><br/><br/>
-  Telefon Numarası: <input class="user-input" name="personal_number" type="number" data-key = user_number ><br/><br/>
-  E-mail: <input class="user-input" name="personal_mail" type="text" size="47" data-key = user_mail ><br/><br/>
-  Adresi: <input class="user-input" name="personal_address" type="text" size="47" data-key = user_adres ><br/><br/>
-  Meslek:<select class="user-input" id="meslekler" data-key = user_meslek>
+  Adı: <input class="user-input" id="personal_fname" type="text" size="50" data-key = AD ><br/><br/>
+  Soyadı: <input class="user-input" id="personal_lname" type="text" size="47" data-key = SOYAD ><br/><br/>
+  Telefon Numarası: <input class="user-input" id="personal_number" type="number" data-key = NO ><br/><br/>
+  E-mail: <input class="user-input" id="personal_mail" type="text" size="47" data-key = E-MAIL ><br/><br/>
+  Adresi: <input class="user-input" id="personal_address" type="text" size="47" data-key = ADRES ><br/><br/>
+  Meslek:<select class="user-input" id="meslekler" data-key = MESLEK>
 	<option value="Öğrenci">Öğrenci</option>
 	<option value="Öğretmen">Öğretmen</option>
 	<option value="Şoför">Şoför</option>
@@ -120,7 +120,7 @@ fieldset {
 	<option value="Mühendis">Mühendis</option>
 	</select><br/><br/>
   Eğitim Durumu:
-     <select class="user-input" id="egitim_durum" data-key = user_egitim_durum >
+     <select class="user-input" id="egitim_durum" data-key = EGITIM_DURUMU >
      <option value="İlkokul">İlkokul</option>
      <option value="Ortaokul">Ortaokul</option>
      <option value="Lise">Lise</option>
@@ -132,7 +132,7 @@ fieldset {
  <fieldset>
   <legend>Yardım İstenen Alanlar</legend>
      Lütfen yardım almak istediğiniz alanı seçin:
-     <select class="user-input" id="yardim_alan" data-key = user_alan>
+     <select class="user-input" id="yardim_alan" data-key = YARDIM_ALANI>
      <option value="Kumanya">Kumanya</option>
      <option value="Yetim">Yetim</option>
      <option value="Aşevi">Aşevi</option>
@@ -144,8 +144,9 @@ fieldset {
  <fieldset>
   <legend>Yardım Ayrıntıları</legend>
   İhtiyacınızla İlgili Belirtmek İstedikleriniz : <br/>
-  <textarea class="user-input" name="ihtiyaclar" rows="10" cols="60" data-key = user_ek_bilgi> </textarea> <br/>
+  <textarea class="user-input" id="ihtiyaclar" rows="10" cols="60" data-key = EK_BILGI> </textarea> <br/>
      <button class="buton" type="button" id="kayit_buton" onclick="add()">İhtiyaç Formu Gönder</button>
+     <button class="buton" type="button" id="sifirla_buton" onclick="sifirla()">Formu Sıfırla</button>
  </fieldset>
 
 <ul id="userList"></ul>
@@ -154,7 +155,19 @@ fieldset {
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
 <!-- firebase sdk link goes here -->
 <script type="text/javascript" src="app.js"></script>
-
+<script>
+    function sifirla(){
+        personal_fname.value = "";
+        personal_lname.value = "";
+        personal_number.value = "";
+        personal_mail.value = "";
+        personal_address.value = "";
+        meslekler.value = "Öğrenci";
+        yardim_alan.value = "Kumanya";
+        ihtiyaclar.value = "";
+        egitim_durum.value = "İlkokul"
+    }
+</script>
 
 </body>
 </html>

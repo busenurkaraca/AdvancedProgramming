@@ -50,6 +50,8 @@ function add(){
 		newUser[key] = value;
 	}
 	 usersRef.push(newUser);
+	window.alert("İhtiyaç talebiniz tarafımıza ulaşmıştır. En kısa zamanda sizinle iletişime geçilecektir.")
+
 }
 
 function add_gonullu(){
