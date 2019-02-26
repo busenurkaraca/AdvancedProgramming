@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>DFA and NFA for (1+0)*00 </title>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+
+<p>Deterministic finite automaton and nondeterministic finite automaton for strings which ends with 00 and starts with 0 or 1</p>
+
+<pre id=out></pre>
+
+<hr />
+<b>Logic</b>
+
+<style>
+    table { 
+        border-collapse: collapse; 
+        margin: 0 50px; 
+    }
+    th { 
+        color: blue; 
+        padding: 5px 12px; 
+    }
+    td { 
+        border: 1px solid blue; 
+        padding: 5px 12px; 
+        text-align: center; 
+    }
+</style>
+<p>DFA Table</p>
+<table>
+<tr><th></th><th>0</th><th>1</th></tr>
+<tr><th>> A</th><td>B</td><td>A</td></tr>
+<tr><th>&emsp;B</th><td>C</td><td>A</td></tr>
+<tr><th>* C</th><td>C</td><td>A</td></tr>
+</table>
+
+<p>NFA Table</p>
+<table>
+<tr><th></th><th>0</th><th>1</th></tr>
+<tr><th>> a</th><td>ab</td><td>a</td></tr>
+<tr><th>&emsp;b</th><td>c</td><td>ϕ</td></tr>
+<tr><th>* c</th><td>ϕ</td><td>ϕ</td></tr>
+</table>
+
+<pre id=sample></pre>
+
+<hr />
+
+
+<script>
+"use strict";
+let w = 48;
+function deltaDFA(q, c) { 
+    if (q=='A' && c=='0') return 'B'
+	if (q=='A' && c=='1') return 'A'
+    if (q=='B' && c=='0') return 'C'
+    if (q=='B' && c=='1') return 'A'
+	if (q=='C' && c=='0') return 'C'
+    if (q=='C' && c=='1') return 'A'
+    if (c=='1') return 'B'
+    return '';  //default -- no transition
+}
+function acceptDFA(w, F='C', q='A') {
+    //w: input String
+    //F: final state(s)
+    //q: current state
+    let i = 0, txt = q
+    while (i < w.length) {
+        q = deltaDFA(q, w[i])
+        if (q == '') break
+        i++; txt += " -> "+q
+    }
+    //input.selectionStart = i
+    //input.selectionEnd = i+1
+    return q!='' && F.includes(q)
+}
+function makeArray(){
+	let anaArray = []
+	let a = []
+	let b = []
+	let regArr = []
+	     for (let n=1; n<50; n++) {
+          anaArray.push(n)
+     }
+	 console.log(anaArray);
+     for (let n of anaArray) {
+          let w = n.toString(2)  // to binary
+          if (acceptDFA(w)) a.push(n);
+     }
+		console.log(a);
+		out.innerText +="Array for DFA : " +a + "\n";
+	for (let n of anaArray) {
+         let w = n.toString(2)  // to binary
+         if (acceptNFA(w)) b.push(n);
+     }
+		console.log(b);
+		out.innerText +="Array for NFA : " +b + "\n";
+		
+	for (let n of anaArray) {
+         let w = n.toString(2)  // to binary
+		 let e = /00$/;
+         if (e.test(w)) regArr.push(n);
+     }
+		console.log(regArr);
+		out.innerText +="With Regex : " +regArr + "\n";	
+	 	
+}
+	
+	//NFA STARTING
+	function union(a, b) { //set operation using strings
+    let s = a
+    for (let x of b) if (!a.includes(x)) s += x
+    return s
+}
+function intersect(a, b) {
+    let s = ''
+    for (let x of b) if (a.includes(x)) s += x
+    return s
+}
+function deltaNFA(q, c) { 
+    if (q=='a' && c=='0') return 'ab'
+    if (q=='a' && c=='1') return 'a'
+    if (q=='b' && c=='0') return 'c' 
+    return '';  //default -- no transition
+}
+function acceptNFA(w, F='c', Q='a') {
+    //w: input String
+    //F: final state(s)
+    //Q: current state(s)
+    let i = 0, txt = Q
+    while (i < w.length) {
+        let c = w[i], T=''
+        for (let q of Q) 
+            T = union(T, deltaNFA(q, c))
+        Q = T
+        if (Q == '') break
+        i++; txt += ", "+c+" -> "+Q+'\n'+Q
+    }
+    return intersect(Q, F).length > 0
+}
+function yazdir() {
+	title.innerText = document.title;
+	sample.innerText = deltaDFA+'\n'+deltaNFA;
+	}
+	yazdir()
+	makeArray()
+</script>
+
+</body>
+</html>
