@@ -18,6 +18,8 @@ Classworks
 
 . [CW2 For Automata](https://busenurkaraca.github.io/AdvancedProgramming/CW2.html)
 
+. [CW3 For Automata](https://busenurkaraca.github.io/AdvancedProgramming/CW3_Automata.html)
+
 Homeworks
 
 . [HW1](https://busenurkaraca.github.io/AdvancedProgramming/HW1/CourseData.html)
